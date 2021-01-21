@@ -4,8 +4,7 @@
 
 	<h1></h1>
 	<form method="post">
-		edit this:
-	  <div id="tinymce">Hello, World!</div>
+	  <div id="tinymce">edit me!</div>
 	</form>
 </section>
 
