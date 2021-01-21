@@ -22,18 +22,31 @@ import "tinymce/tinymce.min.js"
 import "tinymce/themes/silver/theme.js"
 import "tinymce/icons/default/icons.js"
 
-
 let csrfToken = document.querySelector("meta[name='csrf-token']").getAttribute("content")
 let Hooks = {}
+
 Hooks.TinyMCE = {
   mounted() {
-		tinymce.init({
+  	tinymce.EditorManager.init({
 		  selector: "#tinymce",
 		  inline: true,
 		  skin: false,
 		  content_css: 'css/app.css'
 		});
-  }
+	},
+	destroyed(){ 
+		tinymce.remove();
+	  setTimeout(function () {
+	  tinymce.init({
+		  selector: "#tinymce",
+		  inline: true,
+		  skin: false,
+		  content_css: 'css/app.css'
+	  });
+
+	  }, 1);
+	}
+
 }
 let liveSocket = new LiveSocket("/live", Socket, {hooks: Hooks, params: {_csrf_token: csrfToken}})
 
