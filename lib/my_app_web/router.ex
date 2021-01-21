@@ -18,6 +18,7 @@ defmodule MyAppWeb.Router do
     pipe_through :browser
 
     get "/", PageController, :index
+    live "/page-live", PageLive, :index
 
     live "/posts", PostLive.Index, :index
     live "/posts/new", PostLive.Index, :new

@@ -4,7 +4,8 @@
   id: "post-form",
   phx_target: @myself,
   phx_change: "validate",
-  phx_submit: "save" %>
+  phx_submit: "save",
+  phx_update: "ignore" %>
 
   <%= label f, :title %>
   <%= text_input f, :title %>
@@ -14,5 +15,8 @@
   <%= text_input f, :body %>
   <%= error_tag f, :body %>
 
+  <div phx_update="ignore">
+    <div name="tinymce" id="tinymce" phx-hook="TinyMCE">Hello World</div>
+  </div>
   <%= submit "Save", phx_disable_with: "Saving..." %>
 </form>

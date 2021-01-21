@@ -8,7 +8,9 @@
     post: @post,
     return_to: Routes.post_index_path(@socket, :index) %>
 <% end %>
-
+  <div phx_update="ignore">
+    <div name="tinymce" id="tinymce" phx-hook="TinyMCE">Hello World</div>
+  </div>
 <table>
   <thead>
     <tr>
