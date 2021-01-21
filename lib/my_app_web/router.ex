@@ -17,7 +17,7 @@ defmodule MyAppWeb.Router do
   scope "/", MyAppWeb do
     pipe_through :browser
 
-    live "/", PageLive, :index
+    get "/", PageController, :index
 
     live "/posts", PostLive.Index, :index
     live "/posts/new", PostLive.Index, :new
